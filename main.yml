@@ -1,0 +1,124 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+  - name: Removing locks
+    pacman_package:
+      name: "*"
+      state: absent
+
+  - name: Install Timeshift
+    pacman_package:
+      name: timeshift
+      state: present
+
+  - name: Install Spotify
+    pacman_package:
+      name: spotify
+      state: present
+
+  - name: Install VS Code
+    pacman_package:
+      name: visual-studio-code
+      state: present
+
+  - name: Install Firefox
+    pacman_package:
+      name: firefox
+      state: present
+
+  - name: Install W3M
+    pacman_package:
+      name: w3m
+      state: present
+
+  - name: Install W3M-img
+    pacman_package:
+      name: w3m-img
+      state: present
+
+  - name: Install rsync
+    pacman_package:
+      name: rsync
+      state: present
+
+  - name: Install Git
+    pacman_package:
+      name: git
+      state: present
+
+  - name: Install Docker Desktop
+    pacman_package:
+      name: docker-desktop
+      state: present
+
+  - name: Install Docker
+    pacman_package:
+      name: docker
+      state: present
+
+  - name: Install LibreOffice
+    pacman_package:
+      name: libreoffice
+      state: present
+
+  - name: Install Flameshot
+    pacman_package:
+      name: flameshot
+      state: present
+
+  - name: Install Nano
+    pacman_package:
+      name: nano
+      state: present
+
+  - name: Install Audacity
+    pacman_package:
+      name: audacity
+      state: present
+
+  - name: Install Etcher
+    pacman_package:
+      name: etcher
+      state: present
+
+  - name: Install Insync
+    pacman_package:
+      name: insync
+      state: present
+
+  - name: Install Ark Archiver
+    pacman_package:
+      name: ark
+      state: present
+
+  - name: Install Steam
+    pacman_package:
+      name: steam
+      state: present
+
+  - name: Install QBittorrent
+    pacman_package:
+      name: qbittorrent
+      state: present
+
+  - name: Install Neofetch
+    pacman_package:
+      name: neofetch
+      state: present
+
+  - name: Install Virtualbox
+    pacman_package:
+      name: virtualbox
+      state: present
+
+  - name: Install DoxBox
+    pacman_package:
+      name: doxbox
+      state: present
+
+  - name: Install RetroArch
+    pacman_package:
+      name: retroarch
+      state: present
