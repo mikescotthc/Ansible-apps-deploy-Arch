@@ -1,0 +1,122 @@
+---
+- name: Install software packages on Garuda Linux
+  hosts: all
+  become: yes
+
+  tasks:
+    # Remove any locks
+    - name: Remove lock files
+      file:
+        path: /var/lib/pacman/db.lck
+        state: absent
+
+    # Install packages
+    - name: Install Timeshift
+      pacman:
+        name: timeshift
+        state: present
+
+    - name: Install Spotify
+      pacman:
+        name: spotify
+        state: present
+
+    - name: Install VS Code
+      pacman:
+        name: visual-studio-code-bin
+        state: present
+
+    - name: Install W3M
+      pacman:
+        name: w3m
+        state: present
+
+    - name: Install W3M Img
+      pacman:
+        name: w3m-img
+        state: present
+
+    - name: Install Rsync
+      pacman:
+        name: rsync
+        state: present
+
+    - name: Install Git
+      pacman:
+        name: git
+        state: present
+
+    - name: Install Docker Desktop
+      pacman:
+        name: docker-docker-desktop
+        state: present
+
+    - name: Install Docker
+      pacman:
+        name: docker
+        state: present
+
+    - name: Install Libreoffice
+      pacman:
+        name: libreoffice-fresh
+        state: present
+
+    - name: Install Flameshot
+      pacman:
+        name: flameshot
+        state: present
+
+    - name: Install Nano
+      pacman:
+        name: nano
+        state: present
+
+    - name: Install Audacity
+      pacman:
+        name: audacity
+        state: present
+
+    - name: Install Etcher
+      pacman:
+        name: etcher-bin
+        state: present
+
+    - name: Install Insync
+      pacman:
+        name: insync
+        state: present
+
+    - name: Install Ark Archiver
+      pacman:
+        name: ark
+        state: present
+
+    - name: Install Steam
+      pacman:
+        name: steam
+        state: present
+
+    - name: Install QBittorrent
+      pacman:
+        name: qbittorrent
+        state: present
+
+    - name: Install Neofetch
+      pacman:
+        name: neofetch
+        state: present
+
+    - name: Install Virtualbox
+      pacman:
+        name: virtualbox
+        state: present
+
+    - name: Install Doxbox
+      pacman:
+        name: dosbox
+        state: present
+
+    - name: Install Retroarch
+      pacman:
+        name: retroarch
+        state: present
