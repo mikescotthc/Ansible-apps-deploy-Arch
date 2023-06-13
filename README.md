@@ -1,5 +1,7 @@
 # Ansible-apps-deploy-Arch/Garuda
 
+Deploy via a VM or via Container (below)
+
 **DEPLOY TO NEW VM**
 
 By default, on Garuda Linux, the default directory for storing playbook files and other Ansible-related files is `/etc/ansible`.                                                                                                                          
@@ -55,6 +57,28 @@ Sure thing! Here are the updated instructions to use the default Ansible directo
    Ansible should now begin installing the software packages you listed on the remote machine. This may take some time depending on your internet connection speed and the number of packages you are installing.
 
 **DEPLOY VIA CONTAINER**
+
+Pre-requisites
+
+**Ubuntu or other Linux distributions:**
+1. Open a terminal window.
+2. Run the following command to start the Docker daemon and enable it to start automatically on system boot:
+
+   ```
+   sudo systemctl start docker
+   sudo systemctl enable docker
+   ```
+
+   This will start the Docker daemon and will ensure that it starts automatically at boot time.
+
+**Mac OS:**
+1. Open the "Docker" application.
+2. Wait for Docker to start. You'll see a "Docker is running" message in the application when it's ready.
+
+**Windows:**
+1. Open the Docker Desktop application.
+2. Wait for Docker to start. You'll see a green "Docker Desktop is running" icon in your system tray when it's ready.
+
 
 1. **Create a new Docker container**: Spin up a new Garuda Linux Docker container using the following command:
 
