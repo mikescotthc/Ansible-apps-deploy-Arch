@@ -84,6 +84,8 @@ Pre-requisites
 
    ```
    sudo docker run --name arch-container -it --network host archlinux/base
+   #add the following if it's on M1 Mac
+   --plaform linux/arm64
    ```
 
    This will create a new Docker container named `arch-container` running Arch Linux.
