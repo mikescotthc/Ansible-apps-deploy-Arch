@@ -80,32 +80,32 @@ Pre-requisites
 2. Wait for Docker to start. You'll see a green "Docker Desktop is running" icon in your system tray when it's ready.
 
 
-1. **Create a new Docker container**: Spin up a new Garuda Linux Docker container using the following command:
+1. **Create a new Docker container**: Spin up a new Arch Linux Docker container using the following command:
 
    ```
-   sudo docker run --name garuda-container -it --network host garudalinux/garuda-linux
+   sudo docker run --name arch-container -it --network host archlinux/base
    ```
 
-   This will create a new Docker container named `garuda-container` running Garuda Linux.
+   This will create a new Docker container named `arch-container` running Arch Linux.
 
 2. **Install Ansible**: Install Ansible on your local machine, which will be used to connect to the remote Docker container and execute the Ansible playbook. You can follow [these instructions](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) to install Ansible.                                                                                       
 
-3. **Create a new project directory**: Create a new directory to store your Ansible playbook files and inventory file. For example, you could create a directory named `garuda-deployment`:                                                                     
+3. **Create a new project directory**: Create a new directory to store your Ansible playbook files and inventory file. For example, you could create a directory named `arch-deployment`:                                                                       
 
    ```
-   mkdir garuda-deployment && cd garuda-deployment
+   mkdir arch-deployment && cd arch-deployment
    ```
 
-4. **Create an inventory file**: Create a new file named `hosts.ini` in the `garuda-deployment` directory and populate it with the following:                                                                                                                   
+4. **Create an inventory file**: Create a new file named `hosts.ini` in the `arch-deployment` directory and populate it with the following:                                                                                                                     
 
    ```
-   [garuda-container]
+   [arch-container]
    localhost ansible_connection=docker
    ```
 
    This lists `localhost` as the target host for Ansible, and specifies that Ansible should connect to this host using the Docker connection plugin.                                                                                                            
 
-5. **Create the Ansible playbook**: Create a new file named `install-software.yml` in the `garuda-deployment` directory. Copy and paste the playbook I shared with you earlier into this file and save it.                                                      
+5. **Create the Ansible playbook**: Create a new file named `install-software.yml` in the `arch-deployment` directory. Copy and paste the playbook I shared with you earlier into this file and save it.                                                        
 
 6. **Run the playbook**: Run the Ansible playbook to install the software packages on the Docker container using the following command:                                                                                                                         
 
@@ -113,4 +113,4 @@ Pre-requisites
    ansible-playbook -i hosts.ini install-software.yml --connection=docker -u root
    ```
 
-   This executes the Ansible playbook, specifying the inventory file and the connection plugin to be used (`--connection=docker`). The `-u` flag specifies the user to use on the remote machine, which in this case is `root`.  
+   This executes the Ansible playbook, specifying the inventory file and the connection plugin to be used (`--connection=docker`). The `-u` flag specifies the user to use on the remote machine, which in this case is `root`. 
