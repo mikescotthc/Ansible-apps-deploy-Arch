@@ -37,3 +37,15 @@
    Ansible will prompt you for the `sudo` password for your Garuda Linux machine, so enter it when prompted.
 
    Ansible should now begin installing the software packages you listed on the remote machine. This may take some time depending on your internet connection speed and the number of packages you are installing. 
+
+NOTES
+
+The default directory for storing playbook files and other Ansible-related files is `/etc/ansible`.                                                                                                                          
+
+Within this directory, the following folders are commonly used:
+
+1. **/etc/ansible/inventory**: This directory contains inventory files, which list the remote hosts that Ansible will run against.                                                                                                                              
+
+2. **/etc/ansible/playbooks**: This directory contains Ansible playbooks, which are YAML files that define the tasks to be executed by Ansible.                                                                                                                 
+
+3. **/etc/ansible/roles**: This directory is used to store Ansible roles, which are a way to group together tasks, handlers, and templates. 
