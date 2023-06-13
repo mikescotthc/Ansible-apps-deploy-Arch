@@ -1,5 +1,7 @@
 # Ansible-apps-deploy-Arch/Garuda
 
+**DEPLOY TO NEW VM**
+
 By default, on Garuda Linux, the default directory for storing playbook files and other Ansible-related files is `/etc/ansible`.                                                                                                                          
 
 Within this directory, the following folders are commonly used:
@@ -51,3 +53,40 @@ Sure thing! Here are the updated instructions to use the default Ansible directo
    Ansible will prompt you for the `sudo` password for your Garuda Linux machine, so enter it when prompted.
 
    Ansible should now begin installing the software packages you listed on the remote machine. This may take some time depending on your internet connection speed and the number of packages you are installing.
+
+**DEPLOY VIA CONTAINER**
+
+1. **Create a new Docker container**: Spin up a new Garuda Linux Docker container using the following command:
+
+   ```
+   sudo docker run --name garuda-container -it --network host garudalinux/garuda-linux
+   ```
+
+   This will create a new Docker container named `garuda-container` running Garuda Linux.
+
+2. **Install Ansible**: Install Ansible on your local machine, which will be used to connect to the remote Docker container and execute the Ansible playbook. You can follow [these instructions](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) to install Ansible.                                                                                       
+
+3. **Create a new project directory**: Create a new directory to store your Ansible playbook files and inventory file. For example, you could create a directory named `garuda-deployment`:                                                                     
+
+   ```
+   mkdir garuda-deployment && cd garuda-deployment
+   ```
+
+4. **Create an inventory file**: Create a new file named `hosts.ini` in the `garuda-deployment` directory and populate it with the following:                                                                                                                   
+
+   ```
+   [garuda-container]
+   localhost ansible_connection=docker
+   ```
+
+   This lists `localhost` as the target host for Ansible, and specifies that Ansible should connect to this host using the Docker connection plugin.                                                                                                            
+
+5. **Create the Ansible playbook**: Create a new file named `install-software.yml` in the `garuda-deployment` directory. Copy and paste the playbook I shared with you earlier into this file and save it.                                                      
+
+6. **Run the playbook**: Run the Ansible playbook to install the software packages on the Docker container using the following command:                                                                                                                         
+
+   ```
+   ansible-playbook -i hosts.ini install-software.yml --connection=docker -u root
+   ```
+
+   This executes the Ansible playbook, specifying the inventory file and the connection plugin to be used (`--connection=docker`). The `-u` flag specifies the user to use on the remote machine, which in this case is `root`.  
